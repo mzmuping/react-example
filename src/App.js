@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Weather, { Person } from './components/weather'
+import LifeCycle from './components/life-cycle'
 function App() {
   let props = {
     name: '的看法',
@@ -17,6 +18,7 @@ function App() {
         </p>
         <Weather {...props} />
         <Person {...props} />
+        <LifeCycle />
       </header>
     </div>
   );

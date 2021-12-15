@@ -24,7 +24,7 @@ class Weather extends React.Component {
      */
     console.log('myRef', this.myRef.current);
     console.log('myRefCall', this.myRefCall);
-    console.log('myRefString', this.refs.myRefString);
+    // console.log('myRefString', this.refs.myRefString);
     console.log('refPerson', this.refPerson);
     this.setState({
       isHot: !this.state.isHot
@@ -41,7 +41,7 @@ class Weather extends React.Component {
         <button onClick={this.changeIsHot}>炎热</button>
         <div ref={this.myRef}>今天天气{this.state.isHot ? "炎热" : "凉爽"}</div>
         <div ref={(elementNode) => { this.myRefCall = elementNode }}>今天天气{this.state.isHot ? "炎热" : "凉爽"}</div>
-        <div ref='myRefString'>今天天气{this.state.isHot ? "炎热" : "凉爽"}</div>
+        <div >今天天气{this.state.isHot ? "炎热" : "凉爽"}</div>
         <CustomTextInput {...this.props} ref={this.refPerson} />
       </>
     );
@@ -96,4 +96,5 @@ Person.propTypes = {
 Person.defaultProps = {
   isHot: false
 }
+
 export default Weather;

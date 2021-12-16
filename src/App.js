@@ -1,27 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
-import Weather, { Person } from './components/weather'
-import LifeCycle from './components/life-cycle'
-function App() {
-  let props = {
-    name: '的看法',
-    age: 39,
-    height: 185
-  }
-  return (
-
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <Weather {...props} />
-        <Person {...props} />
-        <LifeCycle />
-      </header>
-    </div>
-  );
+import React from 'react'
+import List from './components/List'
+import Footer from './components/Footer'
+import Header from './components/Header'
+export default function App() {
+    return (
+        <div>
+            <Header></Header>
+            <List></List>
+            <Footer></Footer>
+        </div>
+    )
 }
-
-export default App;

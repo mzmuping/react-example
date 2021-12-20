@@ -1,12 +1,30 @@
-import React, { Component } from "react";
-import Item from "../Item";
+import React, { Component } from 'react';
+import './index.scss';
 export default class List extends Component {
   render() {
+    const { users, isFirst, loading, err } = this.props;
+    console.log(users, isFirst, loading, err);
     return (
-      <div>
-        {this.props?.lists?.map((item) => {
-          return <Item key={item.id} {...item}></Item>;
-        })}
+      <div className="lists">
+        {isFirst
+          ? '请搜索数据'
+          : loading
+          ? 'loading.....'
+          : err
+          ? '搜索不到数据'
+          : users.map(item => {
+              return (
+                <a
+                  key={item.id}
+                  className="item"
+                  href={item.html_url}
+                  target="_blank"
+                  rel="noreferrer">
+                  <img src={item.avatar_url} alt="avatar" />
+                  <p>{item.login}</p>
+                </a>
+              );
+            })}
       </div>
     );
   }

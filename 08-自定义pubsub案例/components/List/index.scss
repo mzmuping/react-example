@@ -1,0 +1,18 @@
+.lists {
+  margin: 10px 0;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  a {
+    text-decoration: unset;
+    width: 100px;
+    display: block;
+    text-align: center;
+    color: #444;
+    padding: 10px 5px;
+    img {
+      width: 100%;
+      display: block;
+    }
+  }
+}

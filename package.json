@@ -54,6 +54,7 @@
     "postcss-normalize": "8.0.1",
     "postcss-preset-env": "6.7.0",
     "postcss-safe-parser": "5.0.2",
+    "pre-commit": "^1.2.2",
     "prompts": "2.4.0",
     "prop-types": "^15.7.2",
     "pubsub-js": "^1.9.4",
@@ -62,7 +63,8 @@
     "react-dev-utils": "^11.0.3",
     "react-dom": "^17.0.2",
     "react-refresh": "^0.8.3",
-    "react-router-dom": "^6.2.1",
+    "react-router": "^6.2.1",
+    "react-router-dom": "5.0",
     "resolve": "1.18.1",
     "resolve-url-loader": "^3.1.2",
     "sass": "^1.45.0",
@@ -81,8 +83,12 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "lint": "eslint src"
   },
+  "pre-commit": [
+    "lint"
+  ],
   "eslintConfig": {
     "extends": [
       "react-app",

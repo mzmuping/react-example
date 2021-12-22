@@ -1,0 +1,15 @@
+.main{
+    display: block;
+}
+.main::before,.main::after{
+    display: table;
+    content: " ";
+}
+.left{
+    width: 30%;
+    float: left;
+}
+.rigth{
+    width: 50%;
+    float: left;
+}

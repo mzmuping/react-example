@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import MyNavLink from 'src/components/MyNavLink';
+import News from './components/News';
+import Messge from './components/Messge';
 import './index.less';
 export default class Home extends Component {
   render() {
@@ -9,14 +12,17 @@ export default class Home extends Component {
         <h3>Home组件内容</h3>
         <ul>
           <li>
-            <MyNavLink to="/home/about">News</MyNavLink>
+            <MyNavLink to="/home/news">News</MyNavLink>
           </li>
           <li>
-            <MyNavLink to="/home/about">Messge</MyNavLink>
+            <MyNavLink to="/home/messge">Messge</MyNavLink>
           </li>
         </ul>
-
-        {this.props.children}
+        <Switch>
+          <Route path="/home/news" component={News}></Route>
+          <Route path="/home/messge" component={Messge}></Route>
+          <Redirect to="/home/news" />
+        </Switch>
       </div>
     );
   }

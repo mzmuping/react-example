@@ -1,16 +1,20 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter, HashRouter, Routes, Redirect, Switch, Route } from 'react-router-dom'
+import { Provider } from 'react-redux'
 import App from './App'
-import Home from './pages/Home'
-import About from './pages/About'
 import './app.less'
+import store from './utils/mini-redux/store';
+
 ReactDOM.render(
     <React.StrictMode>
-        <BrowserRouter>
-            <Switch>
-                <Route path="/" component={App}></Route>
-            </Switch>
-        </BrowserRouter >
+        <Provider store={store}>
+            <BrowserRouter>
+                <Switch>
+                    <Route path="/" component={App}></Route>
+                </Switch>
+            </BrowserRouter>
+        </Provider>
     </React.StrictMode >
     , document.getElementById('root'));
+

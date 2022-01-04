@@ -6,10 +6,25 @@ body {
   padding: 10px;
 }
 
-.active{
-    background-color: red;
-    color: #fff;
-    div{
-  }
+.active {
+  background-color: red;
+  color: #fff;
 
+}
+
+.main{
+  display: block;
+  &::before,&::after{
+    display: table;
+    content: " ";
+    clear: both;
+  }
+  .left{
+    width: 30%;
+    float: left;
+  }
+  .rigth{
+    width: 50%;
+    float: left;
+  }
 }

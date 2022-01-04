@@ -1,36 +1,32 @@
 import React, { Component } from 'react';
 import { Link, Route } from 'react-router-dom';
-import { MessgeData } from '../../data';
-import Detail from './../Detail';
-
-export default class Messge extends Component {
+import './index.less';
+import Detail from '../Detail';
+import Data from '../../data';
+export default class News extends Component {
   state = {
-    messgeArr: MessgeData,
+    newsArr: Data,
   };
-
   pushShow = item => {
-    this.props.history.push(
-      `/home/messge/detail?id=${item.id}&&title${item.title}`
-    );
+    this.props.history.push(`/home/list/detail`, { ...item });
   };
   replaceShow = item => {
-    this.props.history.replace(
-      `/home/messge/detail?id=${item.id}&&title${item.title}`
-    );
+    this.props.history.replace(`/home/list/detail`, { ...item });
   };
-
   render() {
-    const { messgeArr } = this.state;
+    const { newsArr } = this.state;
     return (
       <div>
-        {' '}
         <ul>
-          {messgeArr.map(item => {
+          {newsArr.map(item => {
             return (
               <li key={item.id}>
                 <Link
                   replace
-                  to={`/home/messge/detail?id=${item.id}&&title${item.title}`}>
+                  to={{
+                    pathname: '/home/list/detail',
+                    state: { id: item.id },
+                  }}>
                   {item.title}
                 </Link>
                 &nbsp;
@@ -52,8 +48,8 @@ export default class Messge extends Component {
           })}
         </ul>
         <Route
-          path={'/home/messge/detail'}
-          render={props => <Detail {...props} type="messge"></Detail>}></Route>
+          path={'/home/list/detail'}
+          render={props => <Detail {...props} type="list"></Detail>}></Route>
       </div>
     );
   }
